@@ -13,11 +13,23 @@ public class ProductRepository {
 
     public ProductRepository() {
         database = new ArrayList<>();
-        Product exampleProduct = new Product("TV Set", 1000);
-        database.add(exampleProduct);
+//        Product exampleProduct = new Product("TV Set", 1000);
+//        database.add(exampleProduct);
     }
 
     public void add(Product product) {
         database.add(product);
+    }
+
+    public List<Product> getAll() {
+        return database;
+    }
+
+    public double sumPrices() {
+        double sum = 0;
+        for (Product product : database) {
+            sum += product.getPrice();
+        }
+        return sum;
     }
 }

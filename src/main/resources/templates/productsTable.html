@@ -1,0 +1,43 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Table with Products</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body style="margin-left: 10px">
+<div>
+    <h2>Menu</h2>
+    <a th:href="@{/}" th:text="|Powrót do ekranu głównego|"></a>
+    <a th:href="@{/list}" th:text="|Lista produktów|"></a><br/>
+    <h2>Lista produktów</h2>
+</div>
+
+<div style="margin-right: 85%">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Nazwa</th>
+            <th>Cena</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:href="@{/list}" th:each="p :${products}">
+            <th th:text="${p.getName()}"></th>
+            <th th:text="${p.getPrice()}"></th>
+        </tr>
+        <tr>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr>
+            <th>Suma cen produktów:</th>
+            <th th:text="${price}"></th>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
